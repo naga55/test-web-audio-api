@@ -34,7 +34,8 @@ const main = async () => {
     buttonStop.setAttribute('disabled', '');
   })
 
-  // dataavailableイベントにイベントハンドラを追加して収録した音声データを取得します。
+  // mediaRecorder.stop()が実行されるとdataavailableイベントが発火する
+  // Blobオブジェクトを参照するURLを生成し、audioへセットする
   mediaRecorder.addEventListener('dataavailable', event => {
     audio.src = URL.createObjectURL(event.data)
   })
